@@ -1,0 +1,40 @@
+---------------------criar um banco de dados----------------------------------
+
+USE MASTER;
+CREAT DATABASE db_Allacinhos
+
+
+-------------------criar uma tabela e adicioar campos-------------------------
+
+USE db_Allacinhos
+ GO
+CREATE TABLE tb_Cliente
+(Id_cliente SMALLINT IDENTITY NOT NULL,
+tb_Nome	VARCHAR(60) NOT NULL,
+tb_Cpf VARCHAR(11),
+tb_dataNasc DATETIME,
+tb_endereço VARCHAR(60)
+)
+
+-------------------adicionando dados a tabela --------------------------------
+USE db_Allacinhos
+ GO
+INSERT INTO tb_Cliente (tb_Nome,tb_dataNasc,tb_Cpf,tb_endereço)
+VALUES  ('ANA', 	 02/11/1985, 10000000123,	'RUA B CASA 2')
+	('ALANA',	 06/03/2019, 10000000234,	'RUA B CASA 2') 
+	('ANDREY',	 09/10/2000, 1000000345,	'RUA T CASA 1235'),
+	('ANDRE', 	 05/03/1985, 1000000045,	'RUA F BARROS APT102')
+
+
+
+---------------------------selecionando campos de uma tabela-------------------
+
+USE db_Allacinhos
+ GO
+SELECT tb_Nome, tb_endereço FROM tb_cliente
+
+----------------------Renomeando colunas e escolendo as duas primeiras--------- 
+USE db_Allacinhos
+ GO
+SELECT TOP 2 Id_cliente codClient ,tb_Nome Nome FROM tb_Cliente
+
